@@ -1,7 +1,7 @@
 import react, {useState} from 'react'
 import aa from '../Image/sigrex.png'
 import './Navbar.css' 
-
+import { Link } from 'react-router-dom';
 
 
 
