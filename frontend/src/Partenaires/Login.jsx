@@ -1,9 +1,10 @@
-// login.jsx
-
 import React, { useState }   from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Login.css'; // Import du fichier CSS
 
 function Login() {
+
+    const navigate = useNavigate();
   // État pour gérer les champs de saisie et les messages d'erreur
   const [formData, setFormData] = useState({
     username: '',
@@ -30,6 +31,8 @@ function Login() {
                 username: '',
                 password: ''
             });
+            console.log(data); // Handle success response from the backend
+            navigate('/');
         } else {
             alert("Error in Username or Password")
             console.error('Error:', response.statusText);

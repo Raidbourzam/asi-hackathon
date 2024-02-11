@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import './AuthForm.css';
 
 function AuthForm() {
+
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState({
         username: '',
         password: '',
@@ -52,6 +57,7 @@ function AuthForm() {
                     notes: '',
                     image: ''
                 });
+                navigate('/');
                 console.log(data); // Handle success response from the backend
             } else {
                 console.error('Error:', response.statusText);
