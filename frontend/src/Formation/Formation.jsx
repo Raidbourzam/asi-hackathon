@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Formation.css';
+import Navbar from '../landingPage/Navbar';
 
 function Landing() {
   const [formations, setFormations] = useState([]);
@@ -23,6 +24,7 @@ function Landing() {
 
   return (
     <div className='catalogue'>
+      <Navbar />
       <div className='cards-container'>
         {formations.map(item => (
           <div key={item.id} className='card'>
