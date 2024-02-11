@@ -23,19 +23,25 @@ function Landing() {
   }, []);
 
   return (
-    <div className='catalogue'>
-      <Navbar />
-      <div className='cards-container'>
-        {Partenaires.map(item => (
-          <div key={item.id} className='card'>
-            <h2 className='card-title'>{item.objet}</h2>
-            <p className='card-description'>{item.notes}</p>
-            <span className='card-duration'>{item.duree}</span>
-            <a className='card-link' href="#">Details</a>
-          </div>
-        ))}
-      </div>
+    <div>
+        <div className='catalogue'>
+        <Navbar />
+        <div className='cards-container'>
+            {Partenaires.map(item => (
+            <div key={item.id} className='card'>
+                <h2 className='card-title'>{item.objet}</h2>
+                <p className='card-description'>{item.notes}</p>
+                <span className='card-duration'>{item.duree}</span>
+                <a className='card-link' href="#">Details</a>
+            </div>
+            ))}
+        </div>
+        </div>
+        <div className='ButtonDiv'>
+            <button className="demande-btn">Demande de partenariat →</button>
+        </div>
     </div>
+    
   );
 }
 

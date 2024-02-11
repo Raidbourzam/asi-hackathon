@@ -38,7 +38,33 @@
   .card-link {
     display: block;
     text-decoration: none;
-    color: blue;
+    color: #3A3B7B;
     margin-top: 10px;
   }
   
+  .demande-btn-container {
+    text-align: center;
+    margin-top: 10px;
+    width: 100px;
+  }
+
+ 
+  .demande-btn {
+    display: block;
+    margin-top: 30px;
+    background-color: #3A3B7B;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+
+  .ButtonDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+  }

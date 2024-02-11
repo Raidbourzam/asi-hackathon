@@ -31,7 +31,7 @@ function Navbar() {
      <nav className={nav ? 'nav active' : 'nav'} >
         
        
-           <a href='section3' className='logo'>
+           <a href='/' className='logo'>
                 <img src={aa} alt=''/>
             </a>
             <input type='checkbox' className='menu-btn' id='menu-btn'/>
