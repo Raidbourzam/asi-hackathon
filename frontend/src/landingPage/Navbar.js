@@ -40,7 +40,7 @@ function Navbar() {
             </label>
            
             <ul className='menu'>
-                <li><a href='/'>Catalogue de formation</a></li>
+                <li><a href='/Formations'>Catalogue de formation</a></li>
                 <li> <a >Formation avant promotion</a></li>
                 <li>  <a>Formateurs</a></li>
                 <li><a href='/Partenaires'>Partenaires</a></li>
