@@ -1,32 +1,32 @@
 import React, { useEffect, useState } from 'react';
-import './Formation.css';
-import Navbar from '../landingPage/Navbar'
+import './Partenaire.css';
+import Navbar from '../landingPage/Navbar';
 
 function Landing() {
-  const [formations, setFormations] = useState([]);
+  const [Partenaires, setPartenaires] = useState([]);
 
   useEffect(() => {
-    const fetchFormations = async () => {
+    const fetchPartenaires = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/formations');
+        const response = await fetch('http://localhost:8080/api/partenaire/Allpartenaire');
         if (!response.ok) {
-          throw new Error('Failed to fetch formations');
+          throw new Error('Failed to fetch Partenaires');
         }
         const data = await response.json();
-        setFormations(data);
+        setPartenaires(data);
       } catch (error) {
-        console.error('Error fetching formations:', error);
+        console.error('Error fetching Partenaires:', error);
       }
     };
 
-    fetchFormations();
+    fetchPartenaires();
   }, []);
 
   return (
     <div className='catalogue'>
       <Navbar />
       <div className='cards-container'>
-        {formations.map(item => (
+        {Partenaires.map(item => (
           <div key={item.id} className='card'>
             <h2 className='card-title'>{item.objet}</h2>
             <p className='card-description'>{item.notes}</p>
