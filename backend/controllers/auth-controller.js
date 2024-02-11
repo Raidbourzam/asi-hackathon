@@ -100,38 +100,77 @@ const loginPartenaire = async (req, res) => {
     }
 }
 
+// const signupPartenaire = async (req, res) => {
+//     const { username, password } = req.body;
+//     try {
+//         db.query("SELECT * FROM partenaire WHERE username = ?", [username], async (error, results) => {
+//             if (error) {
+//                 console.error('Error during signup:', error);
+//                 return res.status(500).json({ message: 'Internal server error' });
+//             }
+
+
+//             if (results.length > 0) {
+//                 return res.status(409).json({ message: 'partenaire already exists' });
+//             }
+
+
+//             const hashedPassword = await bcrypt.hash(password, 10);
+
+
+//             db.query("INSERT INTO partenaire (username, password) VALUES (?, ?)", [username, hashedPassword], (error, result) => {
+//                 if (error) {
+//                     console.error('Error during signup:', error);
+//                     return res.status(500).json({ message: 'Internal server error' });
+//                 }
+
+
+//                 res.status(201).json({ message: 'partenaire created successfully' });
+//             });
+//         });
+//     } catch (err) {
+//         res.status(500).json({ message: err.message });
+//     }
+// }
+
 const signupPartenaire = async (req, res) => {
-    const { username, password } = req.body;
+    const { username, password ,sigle ,categorie,adresse,tel,fax,mail,pays,url,notes } = req.body;
     try {
-        db.query("SELECT * FROM partenaire WHERE username = ?", [username], async (error, results) => {
-            if (error) {
-                console.error('Error during signup:', error);
-                return res.status(500).json({ message: 'Internal server error' });
-            }
-
-
-            if (results.length > 0) {
-                return res.status(409).json({ message: 'partenaire already exists' });
-            }
-
-
-            const hashedPassword = await bcrypt.hash(password, 10);
-
-
-            db.query("INSERT INTO partenaire (username, password) VALUES (?, ?)", [username, hashedPassword], (error, result) => {
+        // Check if the username already exists
+        const existingUser = await new Promise((resolve, reject) => {
+            db.query("SELECT * FROM partenaire WHERE username = ?", [username], (error, results) => {
                 if (error) {
                     console.error('Error during signup:', error);
-                    return res.status(500).json({ message: 'Internal server error' });
+                    return reject(error);
                 }
-
-
-                res.status(201).json({ message: 'partenaire created successfully' });
+                resolve(results);
             });
         });
-    } catch (err) {
-        res.status(500).json({ message: err.message });
+
+        if (existingUser.length > 0) {
+            return res.status(409).json({ message: 'Partenaire already exists' });
+        }
+
+        // Hash the password
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        // Insert new partner's information into the database
+        await new Promise((resolve, reject) => {
+            db.query("INSERT INTO partenaire (username, password, sigle, categorie, adresse, tel, fax, mail, pays, url, notes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [username, hashedPassword, sigle, categorie, adresse, tel, fax, mail, pays, url, notes], (error, result) => {
+                if (error) {
+                    console.error('Error during signup:', error);
+                    return reject(error);
+                }
+                resolve(result);
+            });
+        });
+
+        res.status(201).json({ message: 'Partenaire created successfully' });
+    } catch (error) {
+        res.status(500).json({ message: 'Internal server error' });
     }
 }
+
 
 
 

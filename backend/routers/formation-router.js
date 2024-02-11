@@ -6,8 +6,8 @@ const express = require('express');
 
 const router = express.Router();
  
-router.get('/',getFormations);
+router.get('/formations/',getFormations);
 
-router.get('/:id',getFormationById);
+router.get('/formations/:id',getFormationById);
  
 module.exports = router;

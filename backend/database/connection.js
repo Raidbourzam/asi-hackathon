@@ -5,9 +5,9 @@ require('dotenv').config();
 // Create MySQL connection
 const connection = mysql.createConnection({
   host: 'localhost',
-  user: process.env.USER,
-  password: process.env.PASSWORD,
-  database: process.env.DATABASE
+  user: 'root',
+  password: '',
+  database: 'asi_hackathon'
 });
 
 connection.connect((err) => {

@@ -19,7 +19,7 @@ const getpartenaireFormations = async (req, res) => {
 
 const getformationsEncours = async (req, res) => {
     try{
-        db.query(" SELECT f.* FROM formation f WHERE f.datefin > CURDATE();" ,(error ,results) => {
+        db.query(" SELECT f.* FROM formation f WHERE f.datefin > CURDATE() and f.datedebut < CURDATE();" ,(error ,results) => {
             if (error) throw error;
             if (results.length === 0){
                 return res.status(404).json({ message: "No formation en cours found" });
