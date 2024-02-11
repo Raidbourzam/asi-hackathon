@@ -1,18 +1,24 @@
-// index.js
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
 require('dotenv').config();
-const userRoutes = require('./routes/userRoutes');
-const productRoutes = require('./routes/productRoutes');
 
-// Middleware
+
 app.use(express.json());
 
-// Routes
-app.use('/api', userRoutes);
-app.use('/api', productRoutes);
 
-// Start server
+app.use(bodyParser.json());
+
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
+
+app.use('/api/formations', require('./routers/formation-router'));
+app.use('/api/auth', require('./routers/auth-router'));
+app.use('/api', require('./routers/domaine-router'));
+app.use('/api', require('./routers/partenaireFormations-router'));
+
+  
 const PORT = process.env.PORT|| 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
