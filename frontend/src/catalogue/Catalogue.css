@@ -1,0 +1,71 @@
+.catalogue-container {
+    padding: 60px;
+    background-color: #F5F5F5;
+    display: grid;
+    grid-template-columns: 1fr; 
+    grid-gap: 20px; 
+    margin-top: 30px;
+}
+
+.formation-container {
+    padding: 60px;
+    background-color: #F5F5F5;
+    display: grid;
+    grid-template-columns: 1fr; 
+    grid-gap: 20px; 
+    
+}
+.header {
+    display: flex;
+    justify-content: space-between; /* Pour espacer les éléments sur la ligne */
+    align-items: center; /* Pour centrer verticalement les éléments */
+}
+
+.title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+
+.download-btn {
+    background-color: #3A3B7B;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    justify-self: end; 
+}
+
+.images-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    justify-items: center; 
+    grid-gap: 20px; 
+}
+
+.image-wrapper {
+    position: relative;
+    width: 100%; 
+    text-align: center; 
+}
+
+.image-wrapper img {
+   
+    width: 100%; 
+    height: auto; 
+}
+
+.image-title {
+    position: absolute; /* Position absolue par rapport à l'élément parent */
+    bottom: 8px; /* Décalage vers le bas */
+    left: 50%; /* Centrage horizontal */
+    transform: translateX(-50%); /* Déplacement horizontal de moitié de la largeur de l'élément */
+    font-size: 24px; /* Taille du titre */
+     
+    text-decoration: underline;
+    color: white; /* Couleur du texte */
+    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent pour une meilleure lisibilité */
+     /* Espacement intérieur */
+}

@@ -1,0 +1,18 @@
+.partenaires-container {
+    text-align: center;
+    padding: 50px;
+  }
+  
+  .logo-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .logo {
+    width: 100px; 
+    height: auto;
+    margin: 0 10px; 
+  }
+  
