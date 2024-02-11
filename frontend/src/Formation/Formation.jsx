@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Formation.css';
-import Navbar from '../landingPage/Navbar'
+import Navbar from '../landingPage/Navbar';
+import Footer from '../landingPage/Footer';
 
 function Landing() {
   const [formations, setFormations] = useState([]);
@@ -23,20 +24,23 @@ function Landing() {
   }, []);
 
   return (
-    <div className='catalogue'>
-      <Navbar />
-      <div className='cards-container'>
-        {formations.map(item => (
-          <div key={item.id} className='card'>
-            <h2 className='card-title'>{item.objet}</h2>
-            <p className='card-description'>{item.notes}</p>
-            <span className='card-duration'>{item.duree}</span>
-            <a className='card-link' href="#">Details</a>
-          </div>
-        ))}
+    <div>                        
+      <Navbar />   
+      <div className='catalogue'>
+        <div className='cards-container'>
+          {formations.map(item => (
+            <div key={item.id} className='card'>
+              <h2 className='card-title'>{item.objet}</h2>
+              <p className='card-description'>{item.notes}</p>
+              <span className='card-duration'>{item.duree}</span>
+              <a className='card-link' href="#">Details</a>
+            </div>
+          ))}
+        </div>
       </div>
+      <Footer />
     </div>
-  );
-}
+  )
+};
 
 export default Landing;

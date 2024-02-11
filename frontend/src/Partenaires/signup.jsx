@@ -13,7 +13,8 @@ function AuthForm() {
         mail: '',
         pays: '',
         url: '',
-        notes: ''
+        notes: '',
+        image: ''
     });
 
     const handleChange = (e) => {
@@ -48,7 +49,8 @@ function AuthForm() {
                     mail: '',
                     pays: '',
                     url: '',
-                    notes: ''
+                    notes: '',
+                    image: ''
                 });
                 console.log(data); // Handle success response from the backend
             } else {
@@ -73,6 +75,7 @@ function AuthForm() {
                 <input type="email" name="mail" value={formData.mail} onChange={handleChange} placeholder="Email" required />
                 <input type="text" name="pays" value={formData.pays} onChange={handleChange} placeholder="Pays" required />
                 <input type="text" name="url" value={formData.url} onChange={handleChange} placeholder="URL" required />
+                <input type="text" name="image" value={formData.image} onChange={handleChange} placeholder="Image" required />
                 <textarea name="notes" value={formData.notes} onChange={handleChange} placeholder="Notes"></textarea>
                 <button type="submit">Sign Up</button>
             </form>

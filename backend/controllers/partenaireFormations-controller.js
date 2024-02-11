@@ -34,7 +34,7 @@ const getformationsEncours = async (req, res) => {
 
 const getAllPartenaire = async (req, res) => {
     try{
-        db.query(" SELECT sigle, categorie, adresse, tel, fax, mail, pays, url, notes FROM partenaire" ,(error ,results) => {
+        db.query(" SELECT sigle, categorie, adresse, tel, fax, mail, pays, url, image , notes FROM partenaire" ,(error ,results) => {
             if (error) throw error;
             if (results.length === 0){
                 return res.status(404).json({ message: "No partenaire Found" });

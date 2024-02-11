@@ -10,6 +10,10 @@
     flex-wrap: wrap;
     justify-content: center;
   }
+  .imagePartenaire {
+    width: 200px;
+    height: 200px;
+  }
   
   .card {
     background-color: #f0f0f0;
@@ -68,3 +72,6 @@
     text-align: center;
     margin-top: 10px;
   }
+
+
+  

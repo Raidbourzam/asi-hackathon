@@ -102,7 +102,7 @@ const loginPartenaire = async (req, res) => {
 
 
 const signupPartenaire = async (req, res) => {
-    const { username, password ,sigle ,categorie,adresse,tel,fax,mail,pays,url,notes } = req.body;
+    const { username, password ,sigle ,categorie,adresse,tel,fax,mail,pays,url,image,notes } = req.body;
     try {
         // Check if the username already exists
         const existingUser = await new Promise((resolve, reject) => {
@@ -124,7 +124,7 @@ const signupPartenaire = async (req, res) => {
 
         // Insert new partner's information into the database
         await new Promise((resolve, reject) => {
-            db.query("INSERT INTO partenaire (username, password, sigle, categorie, adresse, tel, fax, mail, pays, url, notes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [username, hashedPassword, sigle, categorie, adresse, tel, fax, mail, pays, url, notes], (error, result) => {
+            db.query("INSERT INTO partenaire (username, password, sigle, categorie, adresse, tel, fax, mail, pays, url,image, notes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?)", [username, hashedPassword, sigle, categorie, adresse, tel, fax, mail, pays, url,image, notes], (error, result) => {
                 if (error) {
                     console.error('Error during signup:', error);
                     return reject(error);

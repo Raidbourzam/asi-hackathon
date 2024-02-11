@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './Partenaire.css';
 import Navbar from '../landingPage/Navbar';
+import Footer from '../landingPage/Footer';
+import { Link } from 'react-router-dom';
+
 
 function Landing() {
   const [Partenaires, setPartenaires] = useState([]);
@@ -22,6 +25,8 @@ function Landing() {
     fetchPartenaires();
   }, []);
 
+  console.log(Partenaires);
+
   return (
     <div>
         <div className='catalogue'>
@@ -29,17 +34,21 @@ function Landing() {
         <div className='cards-container'>
             {Partenaires.map(item => (
             <div key={item.id} className='card'>
-                <h2 className='card-title'>{item.objet}</h2>
-                <p className='card-description'>{item.notes}</p>
-                <span className='card-duration'>{item.duree}</span>
-                <a className='card-link' href="#">Details</a>
+                <h2 className='card-title'>{item.sigle}</h2>
+                <p className='card-description'>{item.categorie}</p>
+                <span className='card-duration'>{item.tel}</span>
+                <img className='imagePartenaire' src={item.image}/>
+                <a className='card-link' href="#">Details: {item.notes}</a>
             </div>
             ))}
         </div>
         </div>
         <div className='ButtonDiv'>
-            <button className="demande-btn">Demande de partenariat →</button>
+            <Link to="/Signup">
+                <button className="demande-btn">Demande de partenariat →</button>
+          </Link>
         </div>
+        <Footer/>
     </div>
     
   );
