@@ -69,37 +69,39 @@ const signupFormateur = async (req, res) => {
 }
 
 
+
 const loginPartenaire = async (req, res) => {
-    const {username, password} = req.body;
-    try{
-        db.query("SELECT * from partenaire where username = ?",[username],(error, results) => {
+    const { username, password } = req.body;
+    try {
+        db.query("SELECT * from partenaire where username = ?", [username], (error, results) => {
             if (error) throw error;
-            if (results.length === 0){
+            if (results.length === 0) {
                 res.status(404).json({ message: "No partenaire found" });
-            }
-            const user = results[0]; 
-  
+            } else {
+                const user = results[0];
+                if (user && user.password) {
+                    bcrypt.compare(password, user.password, (err, isMatch) => {
+                        if (err) {
+                            console.error('Error during password comparison:', err);
+                            return res.status(500).json({ message: 'Internal server error' });
+                        }
 
-            bcrypt.compare(password, user.password, (err, isMatch) => {
-            if (err) {
-                console.error('Error during password comparison:', err);
-                return res.status(500).json({ message: 'Internal server error' });
-            }
-    
-            if (!isMatch) {
-                return res.status(401).json({ message: 'Invalid password' });
-            }
-    
+                        if (!isMatch) {
+                            return res.status(401).json({ message: 'Invalid password' });
+                        }
 
-            const token = jwt.sign({ userId: user.id }, secret_key, { expiresIn: '1h' });
-            return res.json({ token });
-            });
-            })
-    }catch(err) {
+                        const token = jwt.sign({ userId: user.id }, secret_key, { expiresIn: '1h' });
+                        return res.json({ token });
+                    });
+                } else {
+                    return res.status(401).json({ message: 'Invalid username or password' });
+                }
+            }
+        })
+    } catch (err) {
         res.status(500).json({ message: err.message });
     }
 }
-
 
 const signupPartenaire = async (req, res) => {
     const { username, password ,sigle ,categorie,adresse,tel,fax,mail,pays,url,image,notes } = req.body;

@@ -44,7 +44,7 @@ function Navbar() {
                 <li> <a >Formation avant promotion</a></li>
                 <li>  <a>Formateurs</a></li>
                 <li><a href='/Partenaires'>Partenaires</a></li>
-                <li><a>Connexion</a></li>
+                <li><a href='/Login'>Connexion</a></li>
                 
     </ul>
     
