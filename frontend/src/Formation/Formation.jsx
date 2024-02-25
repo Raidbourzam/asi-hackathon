@@ -10,7 +10,7 @@ function Landing() {
   useEffect(() => {
     const fetchFormations = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/formations');
+        const response = await fetch('http://localhost:8083/api/formations');
         if (!response.ok) {
           throw new Error('Failed to fetch formations');
         }

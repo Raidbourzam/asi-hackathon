@@ -17,7 +17,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-        const response = await fetch('http://localhost:8080/api/auth/partenaire/login', {
+        const response = await fetch('http://localhost:8083/api/auth/partenaire/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

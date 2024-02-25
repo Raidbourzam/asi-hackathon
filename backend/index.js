@@ -26,9 +26,11 @@ app.use('/api', require('./routers/formation-router'));
 app.use('/api/auth', require('./routers/auth-router'));
 app.use('/api', require('./routers/domaine-router'));
 app.use('/api', require('./routers/partenaireFormations-router'));
+app.use('/api', require('./routers/formateurs-router'));
 
   
-const PORT = process.env.PORT|| 8080;
+const PORT =  8083;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+

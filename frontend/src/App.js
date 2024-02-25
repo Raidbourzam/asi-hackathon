@@ -1,6 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Formation from './Formation/Formation';
+import Formateur from './Formateur/Formateur';
 import Signup from './Partenaires/signup';
 import Login from './Partenaires/Login';
 import LandingPage from './landingPage/LandingPage';
@@ -18,6 +19,7 @@ function App() {
           <Route path="/Partenaires" element={<Partenaires />} />
           <Route path="/details" element={<Details />} />
           <Route path="/Login" element={<Login />} />
+          <Route path="/Formateurs" element={<Formateur />} />
         </Routes>
       </div>
     </Router>

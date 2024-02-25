@@ -33,7 +33,7 @@ function AuthForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:8080/api/auth/partenaire/signup', {
+            const response = await fetch('http://localhost:8083/api/auth/partenaire/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

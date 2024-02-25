@@ -1,0 +1,76 @@
+.catalogue {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.imagePartenaire {
+  width: 200px;
+  height: 200px;
+}
+
+.card {
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.card-description {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.card-duration {
+  font-size: 14px;
+  color: #888;
+}
+
+.card-link {
+  display: block;
+  text-decoration: none;
+  color: #3A3B7B;
+  margin-top: 10px;
+}
+
+.demande-btn-container {
+  text-align: center;
+  margin-top: 10px;
+  width: 100px;
+}
+
+
+.demande-btn {
+  display: block;
+  margin-top: 30px;
+  background-color: #3A3B7B;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.ButtonDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 10px;
+}
+
+

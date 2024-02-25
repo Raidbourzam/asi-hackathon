@@ -11,7 +11,7 @@ function Landing() {
   useEffect(() => {
     const fetchPartenaires = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/partenaire/Allpartenaire');
+        const response = await fetch('http://localhost:8083/api/partenaire/Allpartenaire');
         if (!response.ok) {
           throw new Error('Failed to fetch Partenaires');
         }
